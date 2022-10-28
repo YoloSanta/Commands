@@ -2,7 +2,7 @@
 
 > The command library made for all Java-based applications.
 
-#### Discord Support: https://discord.gg/2y6EGBfJtq 
+#### Discord Support: https://discord.gg/2y6EGBfJtq
 
 # Features
 
@@ -10,7 +10,8 @@
 * Automatic mapping of arguments
 * Optional arguments with null support
 * Auto complete / Tab complete for each type
-* Auto Complete for individual arguments ([@AutoComplete](https://github.com/BlazingTide/Commands/blob/master/api/src/main/java/me/blazingtide/commands/annotation/AutoComplete.java))
+* Auto Complete for individual
+  arguments ([@AutoComplete](https://github.com/BlazingTide/Commands/blob/master/api/src/main/java/me/blazingtide/commands/annotation/AutoComplete.java))
 * Permissions for individual arguments
 * No plugin.yml command registration required
 * Automatic help message generation
@@ -36,14 +37,14 @@ pom.xml.
     </dependency>
 </dependencies>
 
-<!-- Velocity -->
+        <!-- Velocity -->
 <dependencies>
-    <dependency>
-        <groupId>me.blazingtide.commands</groupId>
-        <artifactId>velocity</artifactId>
-        <version>1.0</version>
-        <scope>provided</scope>
-    </dependency>
+<dependency>
+    <groupId>me.blazingtide.commands</groupId>
+    <artifactId>velocity</artifactId>
+    <version>1.0</version>
+    <scope>provided</scope>
+</dependency>
 </dependencies>
 ```
 
@@ -72,26 +73,26 @@ Below is an example of the same command built using annotations.
 
 // /item give example
 @Command(labels = {"item give"}, permission = "command.give", usage = "<item> <player>")
-public void execute(CommandSender sender, Material material, @PermissionParam("command.give.other") @OptionalParam Player target) { 
-    //Adding @OptionalParam on the last parameter allows that parameter to be nullable
-    //Adding @PermissionParam will require the sender to have that permission to use that parameter    
-    
-    if (target == null) {
+public void execute(CommandSender sender,Material material,@PermissionParam("command.give.other") @OptionalParam Player target){
+        //Adding @OptionalParam on the last parameter allows that parameter to be nullable
+        //Adding @PermissionParam will require the sender to have that permission to use that parameter    
+
+        if(target==null){
         if(!(sender instanceof Player)){
-            sender.sendMessage("You must be a player to perform this command!");
-            return;
+        sender.sendMessage("You must be a player to perform this command!");
+        return;
         }
 
-        final Player player = (Player) sender;
+final Player player=(Player)sender;
 
         player.getInventory().addItem(new ItemStack(material));
-        sender.sendMessage("You have received " + material);
+        sender.sendMessage("You have received "+material);
         return;
-    }
-    
-    target.getInventory().addItem(new ItemStack(material));
-    target.sendMessage("You have received " + material);
-}
+        }
+
+        target.getInventory().addItem(new ItemStack(material));
+        target.sendMessage("You have received "+material);
+        }
 ```
 
 ### Register Command

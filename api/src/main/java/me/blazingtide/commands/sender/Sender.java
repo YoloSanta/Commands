@@ -10,6 +10,10 @@ import java.util.Objects;
  */
 public interface Sender {
 
+    static Sender of(Object object) {
+        return () -> object;
+    }
+
     /**
      * The object that is the sender.
      *
@@ -43,10 +47,6 @@ public interface Sender {
         }
 
         return clazz.cast(object);
-    }
-
-    static Sender of(Object object) {
-        return () -> object;
     }
 
 }

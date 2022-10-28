@@ -28,6 +28,10 @@ public class CommandsVelocityPlugin {
         plugin = this;
     }
 
+    public static CommandsVelocityPlugin get() {
+        return plugin;
+    }
+
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
         Commands.newInstance()
@@ -52,10 +56,6 @@ public class CommandsVelocityPlugin {
 
     public Logger getLogger() {
         return logger;
-    }
-
-    public static CommandsVelocityPlugin get() {
-        return plugin;
     }
 
     public CommandManager getManager() {

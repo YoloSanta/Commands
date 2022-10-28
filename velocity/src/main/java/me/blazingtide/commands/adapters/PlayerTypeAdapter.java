@@ -2,11 +2,11 @@ package me.blazingtide.commands.adapters;
 
 import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.proxy.Player;
+import me.blazingtide.commands.CommandsVelocityPlugin;
 import me.blazingtide.commands.adapter.TypeAdapter;
 import me.blazingtide.commands.sender.Sender;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import me.blazingtide.commands.CommandsVelocityPlugin;
 
 public class PlayerTypeAdapter implements TypeAdapter<Player> {
 
